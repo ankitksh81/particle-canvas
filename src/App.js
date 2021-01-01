@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import React from 'react';
+import loadable from '@loadable/component';
 import './App.css';
+
+const Particles = loadable(() => import('react-particles-js'));
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Particles
+        className="particle"
+        params={{
+          particles: {
+            number: {
+              value: 100,
+            },
+            size: {
+              value: 1,
+            },
+          },
+          interactivity: {
+            events: {
+              onHover: {
+                enable: true,
+                mode: "grab",
+              },
+              onClick: {
+                enable: true,
+                mode: "push",
+              },
+            },
+          },
+          retina_detect: true,
+        }}
+      />
     </div>
   );
 }
